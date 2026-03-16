@@ -36,6 +36,17 @@ Dosya oluşturma işlemleri bütünsel olarak ele alınamaz. Bütün implementas
 
 - Dosya dökümlerinde yalnızca dosya ismi yaz, DOSYA YOLU EKLEME.
 
+- Her implementasyon sonrası ilgili implementasyonu test edebileceğimiz `Happy-Path Testi` ver.
+
+örneğin `ProductService`'e yeni endpoint eklendiğini varsayalım:
+
+````pwsh
+cd ProductService
+dotnet run
+curl http://localhost:5173/api/v1/products
+````
+> Ürünleri görüyorsan test başarılı.
+
 ### 2) KLASÖR YAPISI (ZORUNLU)
 
 Her servis kendi klasoru altinda asagidaki yapiya gore organize edilir:

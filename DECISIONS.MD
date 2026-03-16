@@ -24,3 +24,11 @@ Bu dosya projedeki bütün mimari kararları içeren döküman dosyasıdır.
 **Neden**: En temiz kurumsal mimari.
 
 **Alternatifler**: N-Layered, Hexagonal
+
+## ADR-0003 - .NET Runtime
+
+**Son Güncellenme**: 16.03.2026
+
+**Seçim**: 9.0
+
+**Neden**: Son kararlı sürüm.
