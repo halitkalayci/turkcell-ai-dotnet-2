@@ -1,0 +1,16 @@
+{
+	"hooks": {
+		"UserPromptSubmit": [
+			{
+				"type": "command",
+				"command": "powershell -Command \"([Console]::IN.ReadToEnd() | ConvertFrom-Json)\""
+			}
+		],
+		"Stop": [
+			{
+				"type": "command",
+				"command": "powershell -Command \"([Console]::IN.ReadToEnd() | ConvertFrom-Json)\""
+			}
+		]
+	}
+}

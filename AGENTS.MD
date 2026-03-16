@@ -2,6 +2,10 @@
 
 Bu dosya, .NET ile yazılacak E-Ticaret Sistemi Backend projesi için anayasal kuralları içeren en temel yönetişim dosyasıdır.
 
+Bu projede herhangi bir teknolojisel-mimarisel karar sorgulanıyor ise [DECISIONS.MD](.github/DECISIONS.MD) dosyası incelenmelidir.
+
+Bağımlılık kararları DECISIONS.MD ile senkronize olmak zorundadır. Herhangi bir infrastructure paketi seçiminden önce DECISIONS.MD okunmalı; seçilen teknoloji ADR kayıtlarıyla çelişirse implementasyon durdurulup kullanıcıya sorulmalıdır.
+
 ---
 
 ### 1) NASIL ÇALIŞILIR? (ZORUNLU İŞ AKIŞI)
