@@ -57,3 +57,5 @@ Her servis kendi klasoru altinda asagidaki yapiya gore organize edilir:
 - src/{ServiceName}/Infrastructure
 
 Yeni bir servis eklendiginde bu yapiya uygun klasorleme zorunludur.
+
+
