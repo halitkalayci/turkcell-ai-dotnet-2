@@ -36,6 +36,8 @@ Dosya oluşturma işlemleri bütünsel olarak ele alınamaz. Bütün implementas
 
 - Dosya dökümlerinde yalnızca dosya ismi yaz, DOSYA YOLU EKLEME.
 
+- Eğer bir/birden fazla yetenek kullanıldı ise kullanılan yetenekleri yaz, kontrol listesinde eksik var mı? Özet geç.
+
 - Her implementasyon sonrası ilgili implementasyonu test edebileceğimiz `Happy-Path Testi` ver.
 
 örneğin `ProductService`'e yeni endpoint eklendiğini varsayalım:
