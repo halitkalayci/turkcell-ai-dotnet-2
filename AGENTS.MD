@@ -35,3 +35,14 @@ Dosya oluşturma işlemleri bütünsel olarak ele alınamaz. Bütün implementas
 - İlgili promptta öneri istenmediği sürece öneride bulunma.
 
 - Dosya dökümlerinde yalnızca dosya ismi yaz, DOSYA YOLU EKLEME.
+
+### 2) KLASÖR YAPISI (ZORUNLU)
+
+Her servis kendi klasoru altinda asagidaki yapiya gore organize edilir:
+
+- src/{ServiceName}/API
+- src/{ServiceName}/Application
+- src/{ServiceName}/Domain
+- src/{ServiceName}/Infrastructure
+
+Yeni bir servis eklendiginde bu yapiya uygun klasorleme zorunludur.
