@@ -29,7 +29,7 @@ var gateway = builder
     .WaitFor(productService)
     .WaitFor(orderService);
 
-builder.AddNpmApp("web", "../Web", "dev")
+builder.AddExecutable("web", "npm", "../Web", "run", "dev")
     .WithReference(gateway)
     .WaitFor(gateway);
 
