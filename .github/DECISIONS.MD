@@ -47,3 +47,16 @@ Bu dosya projedeki bütün mimari kararları içeren döküman dosyasıdır.
 **Kapsam**: Yalnızca orkestrasyon ve observability; iş mantığına dokunulmaz.
 
 **Alternatifler**: Docker Compose, Tye (deprecated)
+
+
+## ADR-0005 - API Gateway
+
+**Son Güncellenme**: 17.03.2026
+
+**Seçim**: YARP (Yet Another Reverse Proxy) 2.2.0
+
+**Neden**: Microsoft'un resmi .NET reverse proxy kütüphanesi. `Microsoft.Extensions.ServiceDiscovery.Yarp` paketi ile Aspire service discovery native entegrasyonu sağlar. `appsettings.json` tabanlı route/cluster konfigürasyonu ile sıfır kod değişikliğiyle yönlendirme kuralları güncellenebilir.
+
+**Kapsam**: `src/Gateway` projesi; ProductService ve OrderService önünde tek giriş noktası. `/api/v1/products/**` → productservice, `/api/v1/orders/**` → orderservice.
+
+**Alternatifler**: Ocelot (daha az aktif geliştirilmekte), Nginx (container tabanlı, .NET ekosistemi dışı)

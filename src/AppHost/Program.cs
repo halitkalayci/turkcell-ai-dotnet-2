@@ -16,10 +16,21 @@ var productService = builder
     .WithReference(productDb)
     .WaitFor(productDb);
 
-builder
+var orderService = builder
     .AddProject<Projects.OrderService_API>("orderservice")
     .WithReference(orderDb)
     .WaitFor(orderDb)
     .WithReference(productService);
+
+var gateway = builder
+    .AddProject<Projects.Gateway>("gateway")
+    .WithReference(productService)
+    .WithReference(orderService)
+    .WaitFor(productService)
+    .WaitFor(orderService);
+
+builder.AddNpmApp("web", "../Web", "dev")
+    .WithReference(gateway)
+    .WaitFor(gateway);
 
 builder.Build().Run();
