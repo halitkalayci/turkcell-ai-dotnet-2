@@ -3,6 +3,7 @@ using ProductService.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
 builder.Services.AddApiServices();
 builder.Services.AddInfrastructure();
 
@@ -16,6 +17,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.MapControllers();
+app.MapDefaultEndpoints();
 
 app.Run();
 

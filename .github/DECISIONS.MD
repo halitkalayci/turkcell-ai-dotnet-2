@@ -32,3 +32,18 @@ Bu dosya projedeki bütün mimari kararları içeren döküman dosyasıdır.
 **Seçim**: 9.0
 
 **Neden**: Son kararlı sürüm.
+
+**Alternatifler**: 8.0 (LTS), 7.0
+
+
+## ADR-0004 - Orkestrasyon Katmanı
+
+**Son Güncellenme**: 17.03.2026
+
+**Seçim**: .NET Aspire 9.1.0
+
+**Neden**: ProductService ve OrderService'i tek komutla başlatma, yerleşik Aspire Dashboard üzerinden distributed tracing / log / metrik görönürlüğü, ilerleyen aşamalarda servisler arası HTTP iletimiyle birlikte service discovery.
+
+**Kapsam**: Yalnızca orkestrasyon ve observability; iş mantığına dokunulmaz.
+
+**Alternatifler**: Docker Compose, Tye (deprecated)

@@ -33,6 +33,9 @@ Domain ← Application ← Infrastructure
 ## 2. Klasör Yapısı (Zorunlu)
 
 ```
+src/AppHost/            ← Tüm servisleri orkestre eden Aspire AppHost projesi
+src/ServiceDefaults/    ← Ortak health check, OpenTelemetry ve service discovery konfigürasyonu
+
 src/{ServiceName}/
   Domain/
     Abstractions/       ← BaseEntity, IRepository, IUnitOfWork, Domain exceptions
@@ -64,6 +67,11 @@ src/{ServiceName}/
     Extensions/
       ApiServiceExtensions.cs
 ```
+
+**AppHost Kuralları:**
+- `AppHost` yalnızca servis projelerine proje referansı alır; iş mantığı içermez.
+- Yeni servis eklendiğinde `AppHost/Program.cs`'e `builder.AddProject<Projects.{ServiceName}_API>(...)` satırı eklenir.
+- `ServiceDefaults` yalnızca `API` katmanı projelerine referans olarak eklenir; `Domain`, `Application` veya `Infrastructure` projelerine eklenmez.
 
 ---
 

@@ -44,14 +44,18 @@ Dosya oluşturma işlemleri bütünsel olarak ele alınamaz. Bütün implementas
 
 - Her implementasyon sonrası ilgili implementasyonu test edebileceğimiz `Happy-Path Testi` ver.
 
-örneğin `ProductService`'e yeni endpoint eklendiğini varsayalım:
+Örneğin `ProductService`'e yeni endpoint eklendiğini varsayalım:
 
 ````pwsh
-cd ProductService
+cd src/AppHost
 dotnet run
-curl http://localhost:5173/api/v1/products
+# Aspire Dashboard → http://localhost:15888
+# productservice → Running, ardından:
+curl http://localhost:{PRODUCTSERVICE_PORT}/api/v1/products
 ````
-> Ürünleri görüyorsan test başarılı.
+> Dashboard'da her iki servis "Running" durumundaysa ve endpoint yanıt veriyorsa test başarılı.
+
+> **Not:** Port numaraları Aspire tarafından dinamik atanır. Gerçek port Dashboard üzerinden veya konsol çıktısından okunur.
 
 #### 1.5) ÖZEL AGENT KULLANIMI (ZORUNLU)
 
@@ -74,3 +78,8 @@ Her servis kendi klasoru altinda asagidaki yapiya gore organize edilir:
 - src/{ServiceName}/Infrastructure
 
 Yeni bir servis eklendiginde bu yapiya uygun klasorleme zorunludur.
+
+Aspire orkestrasyon katmanı aşağıdaki sabit konumlarda bulunur ve bu yapıya dokunulmaz:
+
+- src/AppHost — Tüm servisleri orkestre eden AppHost projesi
+- src/ServiceDefaults — Ortak health check, OpenTelemetry ve service discovery konfigürasyonu
