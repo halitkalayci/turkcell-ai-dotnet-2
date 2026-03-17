@@ -39,7 +39,7 @@ public class OrdersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request, CancellationToken cancellationToken)
     {
-        var command = new CreateOrderCommand(request.CustomerId);
+        var command = new CreateOrderCommand(request.CustomerId, request.Items);
         var orderId = await _mediator.Send(command, cancellationToken);
         return CreatedAtAction(nameof(GetOrderById), new { id = orderId }, new { orderId });
     }
@@ -61,5 +61,5 @@ public class OrdersController : ControllerBase
     }
 }
 
-public sealed record CreateOrderRequest(Guid CustomerId);
+public sealed record CreateOrderRequest(Guid CustomerId, IReadOnlyList<OrderItemRequest> Items);
 public sealed record UpdateOrderStatusRequest(OrderStatus NewStatus);

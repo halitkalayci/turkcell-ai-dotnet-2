@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using OrderService.Application.Abstractions;
 using OrderService.Domain.Abstractions;
 using OrderService.Infrastructure.Persistence;
 using OrderService.Infrastructure.Persistence.Repositories;
@@ -15,6 +16,9 @@ public static class InfrastructureServiceExtensions
 
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
+            client.BaseAddress = new Uri("https+http://productservice"));
 
         return services;
     }
