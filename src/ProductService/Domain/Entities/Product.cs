@@ -57,4 +57,18 @@ public sealed class Product : BaseEntity<Guid>
         Stock += quantity;
         MarkUpdated();
     }
+
+    public void Update(string name, decimal price, int stock, string sku)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        ArgumentException.ThrowIfNullOrWhiteSpace(sku);
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
+        ArgumentOutOfRangeException.ThrowIfNegative(stock);
+
+        Name = name;
+        Price = price;
+        Stock = stock;
+        SKU = sku;
+        MarkUpdated();
+    }
 }

@@ -53,6 +53,17 @@ curl http://localhost:5173/api/v1/products
 ````
 > Ürünleri görüyorsan test başarılı.
 
+#### 1.5) ÖZEL AGENT KULLANIMI (ZORUNLU)
+
+Kompleks işlerde (katmanlar arası implementasyon, CRUD operasyonları, servis geliştirme gibi) varsa o işle ilgili özel agent kullanılması zorunludur.
+
+Genel agent yerine domain-spesifik agent tercih edilmelidir:
+- .NET backend işleri → "Senior Dotnet Dev." agent
+- Java modernizasyonu → "modernize-java" agent  
+- Codebase araştırması → "Explore" agent
+
+> İmplementasyona başlamadan önce hangi agent ile çalışılacağını belirle ve o agent ile devam et.
+
 ### 2) KLASÖR YAPISI (ZORUNLU)
 
 Her servis kendi klasoru altinda asagidaki yapiya gore organize edilir:
@@ -63,5 +74,3 @@ Her servis kendi klasoru altinda asagidaki yapiya gore organize edilir:
 - src/{ServiceName}/Infrastructure
 
 Yeni bir servis eklendiginde bu yapiya uygun klasorleme zorunludur.
-
-
