@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using OrderService.Application.Abstractions;
 using OrderService.Domain.Abstractions;
 using OrderService.Infrastructure.Persistence;
@@ -9,17 +9,16 @@ namespace OrderService.Infrastructure.Extensions;
 
 public static class InfrastructureServiceExtensions
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
+    public static IHostApplicationBuilder AddInfrastructureServices(this IHostApplicationBuilder builder)
     {
-        services.AddDbContext<OrderServiceDbContext>(options =>
-            options.UseInMemoryDatabase("OrderServiceDb"));
+        builder.AddNpgsqlDbContext<OrderServiceDbContext>("orderdb");
 
-        services.AddScoped<IOrderRepository, OrderRepository>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        services.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
+        builder.Services.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
             client.BaseAddress = new Uri("https+http://productservice"));
 
-        return services;
+        return builder;
     }
 }

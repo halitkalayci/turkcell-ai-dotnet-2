@@ -6,13 +6,13 @@ Bu dosya projedeki bütün mimari kararları içeren döküman dosyasıdır.
 
 ## ADR-0001 - Veritabanı
 
-**Son Güncellenme**: 16.03.2026
+**Son Güncellenme**: 17.03.2026
 
-**Seçim**: In-Memory
+**Seçim**: PostgreSQL
 
-**Neden**: Localde en hızlı test birimi.
+**Neden**: Aspire entegrasyonuyla container tabanlı, production'a yakın yerel geliştirme ortamı sağlar. `Aspire.Npgsql.EntityFrameworkCore.PostgreSQL` paketi ile sağlık kontrolü ve distributed tracing desteği sunulur. EF Core Migrations ile şema yönetimi yapılır.
 
-**Alternatifler**: PostgreSQL, MSSQL, MySQL
+**Alternatifler**: In-Memory (önceki seçim), MSSQL, MySQL
 
 
 ## ADR-0002 - Mimari

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using ProductService.Domain.Abstractions;
 using ProductService.Infrastructure.Persistence;
 using ProductService.Infrastructure.Persistence.Repositories;
@@ -8,14 +9,13 @@ namespace ProductService.Infrastructure.Extensions;
 
 public static class InfrastructureServiceExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+    public static IHostApplicationBuilder AddInfrastructure(this IHostApplicationBuilder builder)
     {
-        services.AddDbContext<ProductServiceDbContext>(options =>
-            options.UseInMemoryDatabase("ProductServiceDb"));
+        builder.AddNpgsqlDbContext<ProductServiceDbContext>("productdb");
 
-        services.AddScoped<IProductRepository, ProductRepository>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        return services;
+        return builder;
     }
 }
