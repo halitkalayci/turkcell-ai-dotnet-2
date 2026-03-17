@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Sdk Name="Aspire.AppHost.Sdk" Version="9.1.0" />
 
@@ -8,6 +8,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>c968c0c4-3fb5-427e-852a-2fd2cf19cce0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

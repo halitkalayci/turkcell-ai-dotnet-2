@@ -1,8 +1,12 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+var postgresPassword = builder.AddParameter("postgres-password", secret: true);
+
 var postgres = builder
-    .AddPostgres("postgres") // addContainer();
-    .WithPgAdmin();
+    .AddPostgres("postgres", password: postgresPassword)
+    .WithPgAdmin()
+    .WithDataVolume("postgres-data");
+    //.WithHttpEndpoint(port: 5200, targetPort: 80);
 
 var productDb = postgres.AddDatabase("productdb");
 var orderDb = postgres.AddDatabase("orderdb");
