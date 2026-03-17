@@ -11,4 +11,9 @@
     <ProjectReference Include="..\Application\OrderService.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.1" />
+  </ItemGroup>
+
 </Project>
